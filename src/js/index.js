@@ -1,40 +1,33 @@
-const accordion1 = document.querySelector('.accordion1 .btn-accordion')
-const accordionText1 = document.querySelector('.accordion1 .text')
-const caret1 = document.querySelector('.accordion1 .caret')
-const accordion2 = document.querySelector('.accordion2 .btn-accordion')
-const accordionText2 = document.querySelector('.accordion2 .text')
-const caret2 = document.querySelector('.accordion2 .caret')
-const accordion3 = document.querySelector('.accordion3 .btn-accordion')
-const accordionText3 = document.querySelector('.accordion3 .text')
-const caret3 = document.querySelector('.accordion3 .caret')
+const accordions = document.querySelectorAll('.accordion');
 
-const toggleAccordion1 = function() {
-    accordionText1.classList.toggle('show')
-    caret1.classList.toggle('selected')
-    accordionText2.classList.remove('show')
-    caret2.classList.remove('selected')
-    accordionText3.classList.remove('show')
-    caret3.classList.remove('selected')
-}
+accordions.forEach(accordion => {
+    const btnAccordion = accordion.querySelector('.btn-accordion');
+    const content = accordion.querySelector('.text');
+    const arrow = accordion.querySelector('.caret');
 
-const toggleAccordion2 = function() {
-    accordionText2.classList.toggle('show')
-    caret2.classList.toggle('selected')
-    accordionText1.classList.remove('show')
-    caret1.classList.remove('selected')
-    accordionText3.classList.remove('show')
-    caret3.classList.remove('selected')
-}
+    btnAccordion.addEventListener('click', () => {
+        accordions.forEach(item => {
+            if (item !== accordion) {
+                item.querySelector('.text').classList.remove('show');
+                item.querySelector('.caret').classList.remove('selected');
+            }
+        });
+        content.classList.toggle('show');
+        arrow.classList.toggle('selected');
+    });
+});
 
-const toggleAccordion3 = function() {
-    accordionText3.classList.toggle('show')
-    caret3.classList.toggle('selected')
-    accordionText1.classList.remove('show')
-    caret1.classList.remove('selected')
-    accordionText2.classList.remove('show')
-    caret2.classList.remove('selected')
-}
+// EXPLANATION //
 
-accordion1.addEventListener('click', toggleAccordion1)
-accordion2.addEventListener('click', toggleAccordion2)
-accordion3.addEventListener('click', toggleAccordion3)
+// First, I create a list of all 3 accordions
+
+// For each individual in this list, I get the button and the text elements
+// and still for each I add a listener for the click event
+
+// The listener knows which button of which individual I've clicked, because it sets said individual with a target property
+
+// On click, a new iteration occurs with a new set of individuals, which must represent the same individuals from the original list
+
+// Adds a toggle for the text and arrow of the target individual, i.e. the one that was clicked
+
+// Compares the item of the second iteration with the individual that was actually clicked. If they don't match, classes are removed.
