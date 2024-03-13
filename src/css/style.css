@@ -1,0 +1,83 @@
+.container {
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(231, 231, 231);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .faq-box {
+    background-color: #FCFCFC;
+    width: 655px;
+    height: 347px;
+    border-radius: 21px;
+    box-shadow: 0px 20px 15px -10px rgba(128, 128, 128, 0.541);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.container .faq-box .illustration {
+    width: 278px;
+    height: 293px;
+    position: absolute;
+    left: -90px;
+}
+
+.container .faq-box .faq {
+    margin-left: 228px;
+    padding-block: 60px;
+    padding-right: 37px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.container .faq-box .faq .faq-title {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.container .faq-box .faq .accordion:not(:last-child) {
+    border-bottom: 2px solid #d4d4d486;
+    margin-bottom: 10px;
+}
+
+.container .faq-box .faq .accordion .btn-accordion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.container .faq-box .faq .accordion .btn-accordion .question {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.container .faq-box .faq .accordion .btn-accordion .caret {
+    font-size: 25px;
+    color: rgb(151, 151, 151);
+    padding-right: 6px;
+}
+
+.container .faq-box .faq .accordion .btn-accordion .caret.selected {
+    color: rgba(255, 0, 0, 0.747);
+}
+
+.container .faq-box .faq .accordion .text {
+    display: none;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding-right: 43px;
+}
+
+.container .faq-box .faq .accordion .show {
+    display: block;
+}
